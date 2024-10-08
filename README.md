@@ -34,15 +34,35 @@ Desenvolver um sistema que atenda às seguintes funcionalidades:
 - Configurar o banco de dados:
   - Criar tabelas (cidadãos, serviços, vistos).
   - Utilizar JDBC para operações CRUD.
-
+ 
+#### Equipe
+  - Gesiel Henrique
+  - Junior 
+  - Mikael Dioge
+  - Tiago Silva
+  - Kauan Reycon
+  - Henrique Rocha
+    
 ### Testers
 - Elaborar casos de teste para cada funcionalidade.
 - Criar um plano de teste e registrar os resultados.
+
+### Equipe
+- Diego 
+- Emanuele
+- lucas Matheus
+- Marcos Vinicius
 
 ### Implementadores
 - Integrar o sistema em um ambiente de desenvolvimento.
 - Preparar uma apresentação final demonstrando o funcionamento do sistema.
 
+### Equipe
+- alice
+- alesandra
+- mateus
+- Pedro Leite
+  
 ## Banco de Dados
 
 ### Modelo Relacional
