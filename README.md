@@ -70,7 +70,7 @@ Cada equipe apresentará seu trabalho:
 - Esteja disponível para tirar dúvidas sobre JDBC e modelagem de banco de dados.
 
 ## Contato
-Para mais informações, visite: [www.contoso.com](http://www.contoso.com)
+Para mais informações, visite: [www.embaixabr.com](http://www.contoso.com)
 
 ---
 
