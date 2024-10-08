@@ -74,6 +74,3 @@ Para mais informações, visite: [www.embaixabr.com](http://www.contoso.com)
 
 ---
 
-“Adicione uma citação aqui para destacar o artigo nesta página.”
-
-Boa sorte!
