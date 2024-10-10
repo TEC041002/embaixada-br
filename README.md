@@ -67,7 +67,7 @@ Desenvolver um sistema que atenda às seguintes funcionalidades:
 
 ### Modelo Relacional
 - **Tabela cidadãos:** id, nome, documento, status.
-- **Tabela serviços:** id, tipo_servico, data, cidadao_id.
+- **Tabela serviços:** id, tipo_servico, data, cidadao_id. (https://www.gov.br/mre/pt-br/embaixada-sofia/servicos-consulares-1)
 - **Tabela vistos:** id, cidadao_id, status_visto, data_pedido.
 
 ## Apresentação Final
