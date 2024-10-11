@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cidadãos - ERP Embaixada do Brasil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-radius: 20px;
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Embaixada do Brasil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro-cidadao.html">Cadastro de Cidadãos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="agendamento-servicos.html">Agendamento de Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gerenciamento-vistos.html">Gerenciamento de Vistos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="relatorios.html">Relatórios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Cadastro de Cidadãos</h2>
+        <div class="card p-4">
+            <form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="nome" class="form-label">Nome Completo</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome completo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite o email">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="cpf" placeholder="Digite o CPF">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" class="form-control" id="cep" placeholder="Digite o endereço">
+                    </div>
+                </div>
+
+                <div class="row mb-3" id="viacep">
+                    <div class="col-md-6">
+                        <label for="endereço" class="form-label">Endereço</label>
+                        <input type="text" class="form-control" id="endereço" placeholder="Digite o nome completo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="uf" class="form-label">UF</label>
+                        <input type="text" class="form-control" id="uf" placeholder="Digite o email">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="localidade" class="form-label">Localidade</label>
+                        <input type="text" class="form-control" id="localidade" placeholder="Digite o rua">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

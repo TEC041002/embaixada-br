@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ERP Embaixada do Brasil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/index.css" media="screen" />
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Embaixada do Brasil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cidadao.html">Cadastro de Cidadãos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servico.html">Agendamento de Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="visto.html">Gerenciamento de Vistos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="relatorios.html">Relatórios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="dashboard container">
+        <h2 class="text-center my-4">Bem-vindo ao ERP da Embaixada do Brasil</h2>
+        <div class="row summary-cards">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Cidadãos Cadastrados</h5>
+                        <p class="card-text display-4">1,234</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Serviços Agendados</h5>
+                        <p class="card-text display-4">567</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Vistos Emitidos</h5>
+                        <p class="card-text display-4">890</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Relatórios Gerados</h5>
+                        <p class="card-text display-4">45</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section for Citizen Registration -->
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Últimos Cidadãos Cadastrados</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Data de Cadastro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>joao.silva@gmail.com</td>
+                            <td>08/10/2024</td>
+                        </tr>
+                        <tr>
+                            <td>Maria Oliveira</td>
+                            <td>maria.oliveira@hotmail.com</td>
+                            <td>07/10/2024</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Souza</td>
+                            <td>carlos.souza@yahoo.com</td>
+                            <td>06/10/2024</td>
+                        </tr>
+                        <tr>
+                            <td>Ana Pereira</td>
+                            <td>ana.pereira@outlook.com</td>
+                            <td>05/10/2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section for Scheduled Services -->
+            <div class="col-md-6">
+                <h4>Próximos Serviços Agendados</h4>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Serviço</th>
+                            <th>Data</th>
+                            <th>Cliente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Emissão de Passaporte</td>
+                            <td>09/10/2024</td>
+                            <td>João Silva</td>
+                        </tr>
+                        <tr>
+                            <td>Visto de Trabalho</td>
+                            <td>10/10/2024</td>
+                            <td>Maria Oliveira</td>
+                        </tr>
+                        <tr>
+                            <td>Renovação de Passaporte</td>
+                            <td>11/10/2024</td>
+                            <td>Carlos Souza</td>
+                        </tr>
+                        <tr>
+                            <td>Autenticação de Documentos</td>
+                            <td>12/10/2024</td>
+                            <td>Ana Pereira</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- New Cards Section -->
+        <div class="row text-center action-cards mt-5">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Cadastro de Cidadãos</h5>
+                        <p class="card-text">Gerencie informações pessoais dos cidadãos.</p>
+                        <a href="#cadastro-cidadao" class="btn btn-light">Acessar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Agendamento de Serviços</h5>
+                        <p class="card-text">Agende consultas e serviços.</p>
+                        <a href="#agendamento-servicos" class="btn btn-light">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Gerenciamento de Visto</h5>
+                        <p class="card-text">Acompanhe seus pedidos pelo visto</p>
+                        <a href="#relatorios" class="btn btn-light">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Relatórios</h5>
+                        <p class="card-text">Gere relatórios de serviços prestados.</p>
+                        <a href="#relatorios" class="btn btn-light">Acessar</a>
+                    </div>
+                </div>
+            </div>
+
+            
+
+           
+
+
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

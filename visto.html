@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Vistos - ERP Embaixada do Brasil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border-radius: 20px;
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Embaixada do Brasil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro-cidadao.html">Cadastro de Cidadãos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="agendamento-servicos.html">Agendamento de Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gerenciamento-vistos.html">Gerenciamento de Vistos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="relatorios.html">Relatórios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container my-5">
+        <h2 class="text-center mb-4">Gerenciamento de Vistos</h2>
+        <div class="card p-4">
+            <form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="numero-visto" class="form-label">Número do Visto</label>
+                        <input type="text" class="form-control" id="numero-visto" placeholder="Digite o número do visto">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="status-visto" class="form-label">Status</label>
+                        <select class="form-control" id="status-visto">
+                            <option>Aprovado</option>
+                            <option>Pendente</option>
+                            <option>Negado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="tipo-visto" class="form-label">Tipo de Visto</label>
+                        <input type="text" class="form-control" id="tipo-visto" placeholder="Digite o tipo de visto">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="data-emissao" class="form-label">Data de Emissão</label>
+                        <input type="date" class="form-control" id="data-emissao">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning">Atualizar</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
