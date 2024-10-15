@@ -1,0 +1,313 @@
+---------- Prezados segue a atualização do banco de dados --------------
+Tiago Alves
+
+create database embaixada;
+use embaixada;
+show tables;
+describe passaporte;
+describe cidadao;
+describe casamento;
+describe autorizacao;
+describe cpf;
+describe nascimento;
+describe divorcio;
+describe obito;
+describe nacionalidade;
+describe taxas;
+drop database embaxada;
+select * from passaporte;
+describe passaporte;
+create table passaporte(
+idpassaporte int unsigned not null auto_increment,
+idcidadao int unsigned not null,
+tipoPassaporte char(1) not null,
+paisEmissor char(3),
+numeroPassaporte varchar (8),
+dataExpedicao datetime not null,
+validade datetime not null,
+orgaoExpeditor char(9) not null,
+primary key(idpassaporte),
+foreign key(idcidadao) references cidadao(idcidadao)
+);
+create table cidadao(
+idcidadao int unsigned not null auto_increment,
+date date,
+idpassaporte int unsigned not null,
+nomePessoa varchar(100),
+nancionalidade varchar (15),
+dataNascimento datetime not null,
+localNascimento varchar(30),
+sexo char(1),
+naturalidade varchar(15),
+profissao varchar (10),
+telefone varchar(10),
+email varchar (20),
+enderco varchar(30),
+filiacao1 varchar(50),
+filiacao2 varchar(50),
+primary key(idcidadao)
+);
+create table casamento(
+idcasamento int unsigned not null auto_increment,
+date date,
+idpassaporte int unsigned not null,
+idcidadao int unsigned not null,
+declarante varchar (30),
+diaCasamento datetime not null,
+localidadePais varchar (20),
+numeroRgistroCivil varchar (20),
+conjuge varchar(30),
+estadoCivilAnterior varchar(10),
+nomeConjugeCasamentoAnterior varchar(10),
+dataNascimentoConjugeAnteror datetime not null,
+dataObtoConjugeAnteror datetime not null,
+nomeMaeConjugeAnterior varchar(30),
+nacionalidadeConjugeAnterior varchar(10),
+domicilioPaisConjugeAnterior varchar(40),
+primary key(idcasamento),
+foreign key(idpassaporte) references passaporte(idpassaporte)
+);
+create table autorizacao(
+idautorizacao int unsigned not null auto_increment,
+date date,
+idpassaporte int unsigned not null,
+idcidadao int unsigned not null,
+nomeMenor varchar (30) not null,
+dataExpedicao date not null,
+residenciaAtual varchar(30),
+nomePai varchar (30),
+nomeMae varchar(30),
+nomePessoaAutorizador varchar(30),
+primary key (idautorizacao),
+foreign key(idpassaporte) references passaporte(idpassaporte),
+foreign key(idcidadao) references cidadao(idcidadao)
+);
+create table cpf(
+idcpf int unsigned not null auto_increment,
+idpassaporte int unsigned not null,
+idcidadao int unsigned not null,
+motivo varchar(10),
+dataSaidaPais datetime not null,
+tituloEleitor int (10),
+cpf int (11),
+primary key(idcpf),
+foreign key(idpassaporte) references passaporte(idpassaporte),
+foreign key(idcidadao) references cidadao(idcidadao)
+);
+create table nascimento(
+idnascimento int unsigned not null auto_increment,
+idcidadao int unsigned not null,
+idpassaporte int unsigned not null,
+idcpf int unsigned not null,
+dataNascimento datetime not null,
+paisDeNascimento char(3),
+enderecoResidencial varchar(30),
+nomePai varchar (30),
+nomeMae varchar (30),
+primary key(idnascimento),
+foreign key(idcidadao) references cidadao(idcidadao),
+foreign key(idpassaporte) references passaporte(idpassaporte),
+foreign key(idcpf) references cpf(idcpf)
+);
+create table divorcio(
+iddivorcio int unsigned not null auto_increment,
+idcidadao int unsigned not null,
+idpassaporte int unsigned not null,
+nomeRequerente varchar(30) not null,
+nomeExConjuge varchar(30) not null,
+paisAtual char(3) not null,
+dataSolitacao datetime not null,
+primary key(iddivorcio),
+foreign key(idcidadao) references cidadao(idcidadao),
+foreign key(idpassaporte) references passaporte(idpassaporte)
+);
+delete from obito where idobito = 130;
+delete from obito where idobito = 131;
+select * from obito;
+drop table obito;
+create table obito(
+idobito int unsigned not null auto_increment,
+idpassaporte int unsigned not null,
+idcidadao int unsigned not null,
+dataObito datetime not null,
+endereco varchar(30) not null,
+paisFalecido char(3) not null,
+primary key(idobito),
+foreign key(idpassaporte) references passaporte(idpassaporte),
+foreign key(idcidadao) references cidadao(idcidadao)
+);
+create table nacionalidade(
+idnacionalidade int unsigned not null auto_increment,
+date date,
+idcidadao int unsigned not null,
+idpassaporte int unsigned not null,
+dataSolicitacao datetime not null,
+primary key(idnacionalidade),
+foreign key(idcidadao) references cidadao(idcidadao),
+foreign key(idpassaporte) references passaporte(idpassaporte)
+);
+create table taxas(
+idtaxas int unsigned not null auto_increment,
+taxaPassaporte float,
+taxaCasamento float,
+taxaAutorizacaoe float,
+taxaCpf float,
+taxaNascimento float,
+taxaDivorcio float,
+taxaObito float,
+taxaNacionalidade float,
+primary key(idtaxas)
+);
+
+insert into cidadao (date, idpassaporte, nomePessoa,nancionalidade dataNascimento,localnascimento,sexo,naturalidade,profissao,telefone,email,enderco,filiacao1,filiacao2) values 
+(1,'Ana Silva','BR','1990-05-20','Ceará','F','Brasileira','Engenheira','889877654231','ana@gmail.com','Rua A,1','João Silva','Marina Silva'),
+( 2, 'Carlos Souza', 'BR', '1985-07-15', 'Rio de Janeiro', 'M', 'Brasileiro', 'Médico', '21987654321', 'carlos@gmail.com', 'Rua B, 2', 'José Souza', 'Ana Souza'),
+( 3, 'Fernanda Lima', 'BR', '1988-03-10', 'Curitiba', 'F', 'Curitiba', 'Arquiteta', '41987654321', 'fernanda@gmail.com', 'Rua C, 3', 'Pedro Lima', 'Lucia Lima'),
+( 4, 'Gabriel Santos', 'BR', '1995-08-22', 'Salvador', 'M', 'Salvador', 'Estudante', '51987654321', 'gabriel@gmail.com', 'Rua D, 4', 'Carlos Santos', 'Ana Santos'),
+( 5, 'Juliana Costa', 'BR', '1992-12-30', 'Fortaleza', 'F', 'Fortaleza', 'Professora', '61987654321', 'juliana@gmail.com', 'Rua E, 5', 'José Costa', 'Maria Costa'),
+( 6, 'Marcos Pereira', 'BR', '1983-01-14', 'Recife', 'M', 'Recife', 'Engenheiro', '81987654321', 'marcos@gmail.com', 'Rua F, 6', 'João Pereira', 'Ana Pereira'),
+( 7, 'Tatiane Almeida', 'BR', '1991-09-05', 'Belo Horizonte', 'F', 'Belo Horizonte', 'Designer', '31987654321', 'tatiane@gmail.com', 'Rua G, 7', 'Roberto Almeida', 'Luiza Almeida'),
+( 8, 'Rafael Gomes', 'BR', '1987-11-11', 'Manaus', 'M', 'Manaus', 'Advogado', '92987654321', 'rafael@gmail.com', 'Rua H, 8', 'Carlos Gomes', 'Sandra Gomes'),
+( 9, 'Patrícia Martins', 'BR', '1994-04-20', 'Porto Alegre', 'F', 'Porto Alegre', 'Jornalista', '51987654322', 'patricia@gmail.com', 'Rua I, 9', 'André Martins', 'Bia Martins'),
+( 10, 'Leonardo Rocha', 'BR', '1980-06-18', 'São Luís', 'M', 'São Luís', 'Músico', '98987654321', 'leonardo@gmail.com', 'Rua J, 10', 'Ricardo Rocha', 'Fernanda Rocha'),
+( 11, 'Ana Beatriz', 'BR', '1989-05-15', 'João Pessoa', 'F', 'João Pessoa', 'Fotógrafa', '83987654321', 'anabeatriz@gmail.com', 'Rua K, 11', 'Renato Beatriz', 'Clara Beatriz'),
+( 12, 'Eduardo Silva', 'BR', '1996-02-28', 'Natal', 'M', 'Natal', 'Estudante', '84987654321', 'eduardo@gmail.com', 'Rua L, 12', 'Carlos Silva', 'Sofia Silva'),
+( 13, 'Mariana Cruz', 'BR', '1993-03-22', 'Vitória', 'F', 'Vitória', 'Nutricionista', '27987654321', 'mariana@gmail.com', 'Rua M, 13', 'Pedro Cruz', 'Maria Cruz'),
+( 14, 'Sérgio Almeida', 'BR', '1981-07-10', 'Florianópolis', 'M', 'Florianópolis', 'Cozinheiro', '48987654321', 'sergio@gmail.com', 'Rua N, 14', 'Joaquim Almeida', 'Ana Almeida'),
+( 15, 'Laura Pereira', 'BR', '1992-10-30', 'Belo Horizonte', 'F', 'Belo Horizonte', 'Professora', '31987654321', 'laura@gmail.com', 'Rua O, 15', 'Pedro Pereira', 'Lucia Pereira');
+
+INSERT INTO passaporte (idcidadao, tipoPassaporte, paisEmissor, numeroPassaporte, dataExpedicao, validade, orgaoExpeditor) VALUES
+(1, 'A', 'BRA', '12345678', '2024-02-01', '2034-02-05', 'Polícia Federal'),
+(2, 'B', 'BRA', '23456789', '2023-03-01', '2032-05-04', 'Polícia Federal'),
+(3, 'C', 'BRA', '34567890', '2021-01-02', '2034-02-06', 'Polícia Federal'),
+(4, 'D', 'BRA', '45678901', '2021-05-08', '2036-01-01', 'Polícia Federal'),
+(5, 'F', 'BRA', '56789012', '2024-05-07', '2031-05-01', 'Polícia Federal'),
+(6, 'G', 'BRA', '67890123', '2024-08-06', '2034-05-02', 'Polícia Federal'),
+(7, 'H', 'BRA', '78901234', '2024-06-01', '2033-03-04', 'Polícia Federal'),
+(8, 'I', 'BRA', '89012345', '2020-07-01', '2030-06-02', 'Polícia Federal'),
+(9, 'J', 'BRA', '90123456', '2024-06-10', '2034-08-06', 'Polícia Federal'),
+(10, 'K', 'BRA', '01234567', '2024-03-01', '2031-04-05', 'Polícia Federal'),
+(11, 'L', 'BRA', '12345679', '2025-05-05', '2035-05-05', 'Polícia Federal'),
+(12, 'M', 'BRA', '23456780', '2000-06-12', '2010-10-01', 'Polícia Federal'),
+(13, 'N', 'BRA', '34567891', '2026-03-06', '2035-09-04', 'Polícia Federal'),
+(14, 'O', 'BRA', '45678902', '2020-12-01', '2031-10-08', 'Polícia Federal'),
+(15, 'P', 'BRA', '56789013', '2024-05-04', '2034-03-09', 'Polícia Federal');
+
+INSERT INTO casamento (idpassaporte, idcidadao, declarante, diaCasamento, localidadePais, numeroRgistroCivil, conjuge, estadoCivilAnterior, nomeConjugeCasamentoAnterior, dataNascimentoConjugeAnteror, dataObtoConjugeAnteror, nomeMaeConjugeAnterior, nacionalidadeConjugeAnterior, domicilioPaisConjugeAnterior) VALUES
+(1, 1, 'Ana Silva', '2024-01-01', 'Brasil', '12345', 'Bruno Silva', 'Solteiro', '', '1990-05-20', NULL, 'Maria Silva', 'BR', 'Brasil'),
+(2, 2, 'Carlos Souza', '2024-01-02', 'Brasil', '12346', 'Juliana Souza', 'Solteiro', '', '1985-07-15', NULL, 'Ana Souza', 'BR', 'Brasil'),
+(3, 3, 'Fernanda Lima', '2024-01-03', 'Brasil', '12347', 'Ricardo Lima', 'Solteiro', '', '1988-03-10', NULL, 'Lucia Lima', 'BR', 'Brasil'),
+(4, 4, 'Gabriel Santos', '2024-01-04', 'Brasil', '12348', 'Mariana Santos', 'Solteiro', '', '1995-08-22', NULL, 'Ana Santos', 'BR', 'Brasil'),
+(5, 5, 'Juliana Costa', '2024-01-05', 'Brasil', '12349', 'André Costa', 'Solteiro', '', '1992-12-30', NULL, 'Maria Costa', 'BR', 'Brasil'),
+(6, 6, 'Marcos Pereira', '2024-01-06', 'Brasil', '12350', 'Luana Pereira', 'Solteiro', '', '1983-01-14', NULL, 'Ana Pereira', 'BR', 'Brasil'),
+(7, 7, 'Tatiane Almeida', '2024-01-07', 'Brasil', '12351', 'Rafael Almeida', 'Solteiro', '', '1991-09-05', NULL, 'Luiza Almeida', 'BR', 'Brasil'),
+(8, 8, 'Rafael Gomes', '2024-01-08', 'Brasil', '12352', 'Marcia Gomes', 'Solteiro', '', '1987-11-11', NULL, 'Sandra Gomes', 'BR', 'Brasil'),
+(9, 9, 'Patrícia Martins', '2024-01-09', 'Brasil', '12353', 'Leonardo Martins', 'Solteiro', '', '1994-04-20', NULL, 'Bia Martins', 'BR', 'Brasil'),
+(10, 10, 'Leonardo Rocha', '2024-01-10', 'Brasil', '12354', 'Sofia Rocha', 'Solteiro', '', '1980-06-18', NULL, 'Fernanda Rocha', 'BR', 'Brasil'),
+(11, 11, 'Ana Beatriz', '2024-01-11', 'Brasil', '12355', 'Marcio Beatriz', 'Solteiro', '', '1989-05-15', NULL, 'Clara Beatriz', 'BR', 'Brasil'),
+(12, 12, 'Eduardo Silva', '2024-01-12', 'Brasil', '12356', 'Talita Silva', 'Solteiro', '', '1996-02-28', NULL, 'Sofia Silva', 'BR', 'Brasil'),
+(13, 13, 'Mariana Cruz', '2024-01-13', 'Brasil', '12357', 'Júnior Cruz', 'Solteiro', '', '1993-03-22', NULL, 'Maria Cruz', 'BR', 'Brasil'),
+(14, 14, 'Sérgio Almeida', '2024-01-14', 'Brasil', '12358', 'Claudia Almeida', 'Solteiro', '', '1981-07-10', NULL, 'Ana Almeida', 'BR', 'Brasil'),
+(15, 15, 'Laura Pereira', '2024-01-15', 'Brasil', '12359', 'Ricardo Pereira', 'Solteiro', '', '1992-10-30', NULL, 'Lucia Pereira', 'BR', 'Brasil');
+
+INSERT INTO autorizacao (idpassaporte, idcidadao, nomeMenor, dataExpedicao, residenciaAtual, nomePai, nomeMae, nomePessoaAutorizador) VALUES
+(1, 1, 'Felipe Silva', '2024-01-01', 'São Paulo', 'Ana Silva', 'Carlos Silva', 'José Silva'),
+(2, 2, 'Mariana Souza', '2024-01-01', 'Rio de Janeiro', 'Carlos Souza', 'Maria Souza', 'Ana Souza'),
+(3, 3, 'Lucas Lima', '2024-01-01', 'Curitiba', 'Fernanda Lima', 'Ricardo Lima', 'Lucia Lima'),
+(4, 4, 'Gabriel Santos', '2024-01-01', 'Salvador', 'Gabriel Santos', 'Ana Santos', 'João Santos'),
+(5, 5, 'Larissa Costa', '2024-01-01', 'Fortaleza', 'Juliana Costa', 'José Costa', 'Maria Costa'),
+(6, 6, 'Eduardo Pereira', '2024-01-01', 'Recife', 'Marcos Pereira', 'Ana Pereira', 'Roberto Pereira'),
+(7, 7, 'Ana Almeida', '2024-01-01', 'Belo Horizonte', 'Tatiane Almeida', 'Luiza Almeida', 'Marcio Almeida'),
+(8, 8, 'Mateus Gomes', '2024-01-01', 'Manaus', 'Rafael Gomes', 'Sandra Gomes', 'Carlos Gomes'),
+(9, 9, 'Lívia Martins', '2024-01-01', 'Porto Alegre', 'Patrícia Martins', 'Bia Martins', 'André Martins'),
+(10, 10, 'João Rocha', '2024-01-01', 'São Luís', 'Leonardo Rocha', 'Fernanda Rocha', 'Ricardo Rocha'),
+(11, 11, 'Clara Beatriz', '2024-01-01', 'João Pessoa', 'Ana Beatriz', 'Clara Beatriz', 'Renato Beatriz'),
+(12, 12, 'Daniel Silva', '2024-01-01', 'Natal', 'Eduardo Silva', 'Sofia Silva', 'Carlos Silva'),
+(13, 13, 'Isabela Cruz', '2024-01-01', 'Vitória', 'Mariana Cruz', 'Maria Cruz', 'Pedro Cruz'),
+(14, 14, 'Lucas Almeida', '2024-01-01', 'Florianópolis', 'Sérgio Almeida', 'Ana Almeida', 'Joaquim Almeida'),
+(15, 15, 'Ana Pereira', '2024-01-01', 'Belo Horizonte', 'Laura Pereira', 'Lucia Pereira', 'Pedro Pereira');
+
+INSERT INTO cpf (idpassaporte, idcidadao, motivo, dataSaidaPais, tituloEleitor, cpf) VALUES
+(1, 1, 'Nacional', '2021-01-01', 1234567890, 12345678901),
+(2, 2, 'Nacional', '2022-02-02', 1234567891, 12345678902),
+(3, 3, 'Nacional', '2023-03-03', 1234567892, 12345678903),
+(4, 4, 'Nacional', '2024-04-04', 1234567893, 12345678904),
+(5, 5, 'Nacional', '2025-05-05', 1234567894, 12345678905),
+(6, 6, 'Nacional', '2026-06-06', 1234567895, 12345678906),
+(7, 7, 'Nacional', '2027-07-07', 1234567896, 12345678907),
+(8, 8, 'Nacional', '2028-08-08', 1234567897, 12345678908),
+(9, 9, 'Nacional', '2029-09-09', 1234567898, 12345678909),
+(10, 10, 'Nacional', '2030-10-10', 1234567899, 12345678910),
+(11, 11, 'Nacional', '2031-11-11', 1234567800, 12345678011),
+(12, 12, 'Nacional', '2032-12-12', 1234567811, 12345678122),
+(13, 13, 'Nacional', '2033-02-03', 1234567822, 12345678233),
+(14, 14, 'Nacional', '2034-04-01', 1234567833, 12345678344),
+(15, 15, 'Nacional', '2035-11-02', 1234567844, 12345678455);
+
+INSERT INTO nascimento (idcidadao, idpassaporte, idcpf, dataNascimento, paisDeNascimento, enderecoResidencial, nomePai, nomeMae) VALUES
+(1, 1, 1, '1990-05-20', 'BRA', 'Rua A, 1', 'João Silva', 'Maria Silva'),
+(2, 2, 2, '1985-07-15', 'BRA', 'Rua B, 2', 'José Souza', 'Ana Souza'),
+(3, 3, 3, '1988-03-10', 'BRA', 'Rua C, 3', 'Pedro Lima', 'Lucia Lima'),
+(4, 4, 4, '1995-08-22', 'BRA', 'Rua D, 4', 'Carlos Santos', 'Ana Santos'),
+(5, 5, 5, '1992-12-30', 'BRA', 'Rua E, 5', 'José Costa', 'Maria Costa'),
+(6, 6, 6, '1983-01-14', 'BRA', 'Rua F, 6', 'João Pereira', 'Ana Pereira'),
+(7, 7, 7, '1991-09-05', 'BRA', 'Rua G, 7', 'Roberto Almeida', 'Luiza Almeida'),
+(8, 8, 8, '1987-11-11', 'BRA', 'Rua H, 8', 'Carlos Gomes', 'Sandra Gomes'),
+(9, 9, 9, '1994-04-20', 'BRA', 'Rua I, 9', 'André Martins', 'Bia Martins'),
+(10, 10, 10, '1980-06-18', 'BRA', 'Rua J, 10', 'Ricardo Rocha', 'Fernanda Rocha'),
+(11, 11, 11, '1989-05-15', 'BRA', 'Rua K, 11', 'Renato Beatriz', 'Clara Beatriz'),
+(12, 12, 12, '1996-02-28', 'BRA', 'Rua L, 12', 'Carlos Silva', 'Sofia Silva'),
+(13, 13, 13, '1993-03-22', 'BRA', 'Rua M, 13', 'Pedro Cruz', 'Maria Cruz'),
+(14, 14, 14, '1981-07-10', 'BRA', 'Rua N, 14', 'Joaquim Almeida', 'Ana Almeida'),
+(15, 15, 15, '1992-10-30', 'BRA', 'Rua O, 15', 'Pedro Pereira', 'Lucia Pereira');
+
+INSERT INTO divorcio (idcidadao, idpassaporte, nomeRequerente, nomeExConjuge, paisAtual, dataSolitacao) VALUES
+(1, 1, 'Ana Silva', 'Bruno Silva', 'BRA', '2024-01-01'),
+(2, 2, 'Carlos Souza', 'Juliana Souza', 'BRA', '2024-02-02'),
+(3, 3, 'Fernanda Lima', 'Ricardo Lima', 'BRA', '2024-03-03'),
+(4, 4, 'Gabriel Santos', 'Mariana Santos', 'BRA', '2024-04-04'),
+(5, 5, 'Juliana Costa', 'André Costa', 'BRA', '2024-05-05'),
+(6, 6, 'Marcos Pereira', 'Luana Pereira', 'BRA', '2024-06-06'),
+(7, 7, 'Tatiane Almeida', 'Rafael Almeida', 'BRA', '2024-07-07'),
+(8, 8, 'Rafael Gomes', 'Marcia Gomes', 'BRA', '2024-08-08'),
+(9, 9, 'Patrícia Martins', 'Leonardo Martins', 'BRA', '2024-09-09'),
+(10, 10, 'Leonardo Rocha', 'Sofia Rocha', 'BRA', '2024-10-10'),
+(11, 11, 'Ana Beatriz', 'Marcio Beatriz', 'BRA', '2024-11-11'),
+(12, 12, 'Eduardo Silva', 'Talita Silva', 'BRA', '2024-12-12'),
+(13, 13, 'Mariana Cruz', 'Júnior Cruz', 'BRA', '2024-01-13'),
+(14, 14, 'Sérgio Almeida', 'Claudia Almeida', 'BRA', '2024-02-14'),
+(15, 15, 'Laura Pereira', 'Ricardo Pereira', 'BRA', '2024-02-15');
+
+INSERT INTO obito (idpassaporte, idcidadao, dataObito, endereco, paisFalecido) VALUES
+(1, 1, '2000-01-01', 'Rua A, 1', 'BRA'),
+(2, 2, '2001-02-02', 'Rua B, 2', 'BRA'),
+(3, 3, '2002-03-03', 'Rua C, 3', 'BRA'),
+(4, 4, '2003-03-03', 'Rua D, 4', 'BRA'),
+(5, 5, '2004-04-04', 'Rua E, 5', 'BRA'),
+(6, 6, '2005-05-05', 'Rua F, 6', 'BRA'),
+(7, 7, '2006-06-06', 'Rua G, 7', 'BRA'),
+(8, 8, '2007-07-07', 'Rua H, 8', 'BRA'),
+(9, 9, '2008-08-08', 'Rua I, 9', 'BRA'),
+(10, 10, '2009-09-09', 'Rua J, 10', 'BRA'),
+(11, 11, '2010-10-10', 'Rua K, 11', 'BRA'),
+(12, 12, '2011-11-11', 'Rua L, 12', 'BRA'),
+(13, 13, '2012-12-12', 'Rua M, 13', 'BRA'),
+(14, 14, '2013-01-01', 'Rua N, 14', 'BRA'),
+(15, 15, '2014-02-02', 'Rua O, 15', 'BRA');
+
+INSERT INTO taxas (taxaPassaporte, taxaCasamento, taxaAutorizacaoe, taxaCpf, taxaNascimento, taxaDivorcio, taxaObito, taxaNacionalidade) VALUES
+(200.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(300.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(150.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(400.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(350.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(1500.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(250.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(310.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(410.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(210.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(320.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(220.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(230.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(110.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00),
+(230.00, 100.00, 50.00, 30.00, 40.00, 100.00, 80.00, 120.00);
