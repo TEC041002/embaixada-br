@@ -55,7 +55,7 @@ public class Servico {
    private int cidadaoId;
 
 
-   // Construtor
+
    public Servico(int id, String tipoServico, Date data, int cidadaoId) {
        this.id = id;
        this.tipoServico = tipoServico;
@@ -64,7 +64,7 @@ public class Servico {
    }
 
 
-   // Getters
+
    public int getId() {
        return id;
    }
@@ -85,9 +85,9 @@ public class Servico {
    }
 
 
-   // Método para agendar serviço (sem banco de dados)
+ 
    public static void agendarServico(Servico servico) {
-       // Simulando o agendamento de um serviço sem interação com banco de dados
+      
        System.out.println("Serviço agendado com sucesso!");
        System.out.println("ID do Serviço: " + servico.getId());
        System.out.println("Tipo de Serviço: " + servico.getTipoServico());
