@@ -1,0 +1,63 @@
+/**
+* Cria o banco de dados embaixada_br.
+*/
+CREATE DATABASE embaixada_br;
+
+/**
+* Utiliza o banco de dados embaixada_br.
+*/
+USE embaixada_br;
+
+/**
+* Tabela cidadao: Armazena informações sobre os cidadãos.
+*
+* id: Identificador único do cidadão (chave primária).
+* nome: Nome completo do cidadão.
+* documento: Documento de identificação do cidadão (ex: CPF).
+* status: Estado civil do cidadão (ex: Casado, Solteiro).
+*/
+CREATE TABLE cidadao (
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(100),
+documento VARCHAR(50),
+status VARCHAR(50)
+);
+
+/**
+* Tabela servico: Armazena informações sobre os serviços solicitados pelos cidadãos.
+*
+* id: Identificador único do serviço (chave primária).
+* tipo_servico: Tipo de serviço solicitado (ex: Passaporte, Visto).
+* data: Data em que o serviço foi solicitado.
+* cidadao_id: Identificador do cidadão que solicitou o serviço (chave estrangeira referenciando cidadao).
+*/
+CREATE TABLE servico (
+id INT AUTO_INCREMENT PRIMARY KEY,
+tipo_servico VARCHAR(100),
+data DATE,
+cidadao_id INT,
+FOREIGN KEY (cidadao_id) REFERENCES cidadao(id)
+);
+
+/**
+* Consulta todos os cidadãos cadastrados.
+*/
+SELECT * FROM cidadao;
+
+/**
+* Consulta todos os serviços solicitados.
+*/
+SELECT * FROM servico;
+
+/**
+* Insere cidadãos na tabela cidadao.
+*
+* Valores a serem inseridos:
+* 1. Nome: Lileia Alburquerque, Documento: 997.737.414-52, Status: Casada
+* 2. Nome: Lucas Gabriel Rodrigues da Silva, Documento: 774.528.888-02, Status: Casado
+* 3. Nome: Rubes Gonçalves de Oliveira, Documento: 666.435.782-45, Status: Casado
+*/
+INSERT INTO cidadao(nome, documento, status) VALUES
+('Lileia Alburquerque', '997.737.414-52', 'Casada'),
+('Lucas Gabriel Rodrigues da Silva', '774.528.888-02', 'Casado'),
+('Rubes Gonçalves de Oliveira', '666.435.782-45', 'Casado');
