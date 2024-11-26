@@ -1,0 +1,45 @@
+CREATE DATABASE embaixada_br; 
+USE embaixada_br; 
+
+create table login(
+idlogin int unsigned not null auto_increment,
+idcidadao int unsigned not null,
+login varchar(45),
+senha varchar(45),
+primary key(idlogin),
+foreign key(idcidadao) references cidadao(idcidadao)
+);
+
+
+CREATE TABLE cidadao ( 
+id INT AUTO_INCREMENT PRIMARY KEY, 
+nome VARCHAR(100), 
+documento VARCHAR(50), 
+status VARCHAR(50) ); 
+CREATE TABLE servico ( 
+id INT AUTO_INCREMENT PRIMARY KEY, 
+tipo_servico VARCHAR(100), 
+data DATE, 
+cidadao_id INT, 
+FOREIGN KEY (cidadao_id) REFERENCES cidadao(id));
+CREATE DATABASE embaixada_br;
+USE embaixada_br;
+CREATE TABLE cidadao (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    documento VARCHAR(50),
+    status VARCHAR(50)
+);
+CREATE TABLE servico (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_servico VARCHAR(100),
+    data DATE,
+    cidadao_id INT,
+    FOREIGN KEY (cidadao_id) REFERENCES cidadao(id)
+);
+select * from cidadao;
+select * from servico;
+insert into cidadao(nome, documento, status) values 
+('Lileia Alburquerque', '997.737.414-52', 'Casada'),
+('Lucas Gabriel Rodrigues da Silva', '774.528.888-02', 'Casado'),
+('Rubes Gonçalves de Oliveira', '666.435.782-45', 'Casado');
