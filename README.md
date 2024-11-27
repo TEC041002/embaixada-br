@@ -50,7 +50,7 @@ Desenvolver um sistema que atenda às seguintes funcionalidades:
 ### Equipe
 - Diego 
 - Emanuele
-- lucas Matheus
+- Lucas Matheus
 - Marcos Vinicius
 
 ### Implementadores
@@ -58,9 +58,9 @@ Desenvolver um sistema que atenda às seguintes funcionalidades:
 - Preparar uma apresentação final demonstrando o funcionamento do sistema.
 
 ### Equipe
-- alice
-- alesandra
-- mateus
+- Alice
+- Alessandra
+- Matheus
 - Pedro Leite
   
 ## Banco de Dados
