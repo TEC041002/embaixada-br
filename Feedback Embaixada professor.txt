@@ -1,0 +1,6 @@
+Feedback do professor para o projeto embaixada:
+Foi apontado algumas melhorias para o serviço de solicitação de Passaporte, quais sejam; acrescentar um formulário completo, estruturado e intuitivo que peça todos os dados necessários para
+pedir um passaporte.
+As demais características satisfizeram suas expectativas. Para refinar os outros serviços, seria bom adicionar os mesmos processos de formulário (considerando suas necessidades, sem ser copia e cola para as demais), em vez de se ater
+apenas ao agendamento, pois, considerando que é um sistema online, muitos de seus serviços podem ser eficientes, de maneira que simplifique seus variados processos.
+Por fim, corrigir as cores dos botões de interação, pois seu contraste e claridade podem dificultar a leitura.
